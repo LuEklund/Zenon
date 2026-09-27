@@ -1,4 +1,11 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1790513400
-icon.svg::CompressedTexture2D::1790880795757653::1790513103::1790513400::1::::<><><>0<>0<>1d558fff71561543e2cf7e0d300c3350<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-README.md::TextFile::-1::1790513041::0::1::::<><><>0<>0<><>::
+::res://::1790516384
+icon.svg::CompressedTexture2D::1790880795757653::1790516279::1790516279::1::::<><><>0<>0<>1d558fff71561543e2cf7e0d300c3350<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1790516279::0::1::::<><><>0<>0<><>::
+::res://scenes/::1790516174
+main.tscn::PackedScene::1888705108584480242::1790516174::0::1::::<><><>0<>0<><>::
+::res://scenes/units/::1790516174
+goblin_man.tscn::PackedScene::8098899262664996448::1790516174::0::1::::<><><>0<>0<><>::uid://br7eg87oj0egv::::res://scripts/unit.gd<>uid://3hr5ol7rf35r::::res://scripts/health.gd
+::res://scripts/::1790516174
+health.gd::GDScript::1980824782634133749::1790516174::0::1::::Health<>Node<><>0<>0<><>::
+unit.gd::GDScript::3645946479757466121::1790516174::0::1::::Unit<>CharacterBody3D<><>0<>0<><>::
