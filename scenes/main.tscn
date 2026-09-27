@@ -18,7 +18,7 @@ albedo_color = Color(0.41125768, 0.7731392, 0.3557201, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_sugp2"]
 material = SubResource("StandardMaterial3D_jyhfs")
-size = Vector2(225, 1)
+size = Vector2(400, 1)
 
 [node name="Main" type="Node3D" unique_id=2014652004]
 script = ExtResource("1_sugp2")
