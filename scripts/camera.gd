@@ -19,8 +19,7 @@ func _physics_process(delta: float) -> void:
 	)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is not InputEventMouseButton:
-		return
+	if event is not InputEventMouseButton: return
 
 	if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 		camera.size = clampf(
