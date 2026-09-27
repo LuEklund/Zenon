@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://bxottdcs83qgk"]
 
-[ext_resource type="Script" uid="uid://3hr5ol7rf35r" path="res://scripts/health.gd" id="1_lerjl"]
+[ext_resource type="Script" uid="uid://dp1tkk4p3v7nj" path="res://scenes/units/structure.gd" id="1_h3kr1"]
 [ext_resource type="Material" uid="uid://bmfbvpkeh63ol" path="res://assets/materials/gold.tres" id="1_wdfag"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dgfsc"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_dgfsc"]
 
-[node name="GoldDeposit" type="StaticBody3D" unique_id=399286149]
+[node name="GoldDeposit" type="StaticBody3D" unique_id=1346128720]
 collision_layer = 0
 collision_mask = 4
+script = ExtResource("1_h3kr1")
+team = 3
+metadata/_custom_type_script = "uid://3hr5ol7rf35r"
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=2146112708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -19,8 +22,3 @@ shape = SubResource("BoxShape3D_dgfsc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
 material_override = ExtResource("1_wdfag")
 mesh = SubResource("SphereMesh_dgfsc")
-
-[node name="Health" type="Node" parent="." unique_id=1299013082 node_paths=PackedStringArray("target")]
-script = ExtResource("1_lerjl")
-target = NodePath("..")
-metadata/_custom_type_script = "uid://3hr5ol7rf35r"
