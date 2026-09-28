@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://einesmm5h5bg"]
+
+[ext_resource type="PackedScene" uid="uid://bs1c5bm4bpxjv" path="res://scenes/stickmen/stickman.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://bbwnta0ckj6fi" path="res://assets/icons/pickaxe.png" id="1_jjhmc"]
+
+[sub_resource type="Animation" id="Animation_0rs6b"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rs6b"]
+_data = {
+&"idle": SubResource("Animation_0rs6b")
+}
+
+[node name="Animations" unique_id=1837796738 instance=ExtResource("1_base")]
+
+[node name="Line2D" parent="Skeleton2D/hip/thigh_r" parent_id_path=PackedInt32Array(1080191419) index="0" unique_id=662473249]
+metadata/_edit_lock_ = true
+
+[node name="knee_r" parent="Skeleton2D/hip/thigh_r" parent_id_path=PackedInt32Array(1080191419) index="1" unique_id=1250087950]
+rotation = 0.18506314
+
+[node name="Line2D" parent="Skeleton2D/hip/thigh_r/knee_r" index="0" unique_id=303626525]
+metadata/_edit_lock_ = true
+
+[node name="Line2D" parent="Skeleton2D/hip/thigh_r/knee_r/ankle_r" parent_id_path=PackedInt32Array(1568264443) index="0" unique_id=210454566]
+metadata/_edit_lock_ = true
+
+[node name="thigh_l" parent="Skeleton2D/hip" parent_id_path=PackedInt32Array(181494435) index="1" unique_id=1190039520]
+rotation = -0.64622986
+
+[node name="Line2D" parent="Skeleton2D/hip/thigh_l" index="0" unique_id=536446839]
+metadata/_edit_lock_ = true
+
+[node name="knee_l" parent="Skeleton2D/hip/thigh_l" index="1" unique_id=1967909547]
+rotation = 1.1376576
+
+[node name="Line2D" parent="Skeleton2D/hip/thigh_l/knee_l" index="0" unique_id=1762853313]
+metadata/_edit_lock_ = true
+
+[node name="Line2D" parent="Skeleton2D/hip/thigh_l/knee_l/ankle_l" parent_id_path=PackedInt32Array(483842616) index="0" unique_id=346726778]
+metadata/_edit_lock_ = true
+
+[node name="spine_low" parent="Skeleton2D/hip" parent_id_path=PackedInt32Array(181494435) index="2" unique_id=1822266256]
+rotation = 0.48547715
+
+[node name="Skeleton2D_hip_spine#Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low" index="0" unique_id=1246314168]
+points = PackedVector2Array(0, 0, 0, -13.84)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="spine_mid" parent="Skeleton2D/hip/spine_low" index="1" unique_id=2092246966]
+rotation = 0.094524816
+
+[node name="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid" index="0" unique_id=1187386036]
+metadata/_edit_lock_ = true
+
+[node name="spine_up" parent="Skeleton2D/hip/spine_low/spine_mid" index="1" unique_id=409568625]
+rotation = 0.42164382
+
+[node name="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up" index="0" unique_id=1039411149]
+metadata/_edit_lock_ = true
+
+[node name="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" parent_id_path=PackedInt32Array(572383699) index="0" unique_id=1333074212]
+metadata/_edit_lock_ = true
+
+[node name="shoulder_l" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" parent_id_path=PackedInt32Array(572383699) index="1" unique_id=101601084]
+rotation = -1.589083
+
+[node name="Skeleton2D_hip_spine_chest_shoulder_l#Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_l" index="0" unique_id=1913890315]
+points = PackedVector2Array(0, 0, -31.57, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_l/elbow_l" parent_id_path=PackedInt32Array(1350333157) index="0" unique_id=1595358351]
+metadata/_edit_lock_ = true
+
+[node name="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/head" parent_id_path=PackedInt32Array(843993442) index="0" unique_id=1749542218]
+metadata/_edit_lock_ = true
+
+[node name="shoulder_r" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" parent_id_path=PackedInt32Array(572383699) index="3" unique_id=192820617]
+rotation = 0.856076
+
+[node name="Skeleton2D_hip_spine_chest_shoulder_r#Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r" index="0" unique_id=608964326]
+points = PackedVector2Array(0, 0, 31.57, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="Skeleton2D_hip_spine_chest_shoulder_r#elbow_r" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r" index="1" unique_id=842321837]
+position = Vector2(31.57, 0)
+rotation = -2.7067356
+rest = Transform2D(1, 0, 0, 1, 31.57, 0)
+
+[node name="Skeleton2D_hip_spine_chest_shoulder_r_elbow_r#Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r/Skeleton2D_hip_spine_chest_shoulder_r#elbow_r" index="0" unique_id=47351236]
+points = PackedVector2Array(0, 0, 22.16, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="hand_r" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r/Skeleton2D_hip_spine_chest_shoulder_r#elbow_r" index="1" unique_id=1185935685]
+position = Vector2(22.16, 0)
+rest = Transform2D(1, 0, 0, 1, 22.16, 0)
+
+[node name="Skeleton2D_hip_spine_chest_shoulder_r_elbow_r_hand_r#TextureRect" type="TextureRect" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r/Skeleton2D_hip_spine_chest_shoulder_r#elbow_r/hand_r" index="0" unique_id=1625673809]
+offset_left = -0.8722086
+offset_top = -25.42575
+offset_right = 25.857834
+offset_bottom = 1.3042908
+texture = ExtResource("1_jjhmc")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1534295577]
+libraries/miner = SubResource("AnimationLibrary_0rs6b")
