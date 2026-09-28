@@ -1,0 +1,302 @@
+[gd_scene format=3 uid="uid://bs1c5bm4bpxjv"]
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_j6dve"]
+target_nodepath = NodePath("../foot_target_l")
+joint_one_bone_idx = 5
+joint_one_bone2d_node = NodePath("hip/thigh_l")
+joint_two_bone_idx = 6
+joint_two_bone2d_node = NodePath("hip/thigh_l/knee_l")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_yejg4"]
+target_nodepath = NodePath("../foot_target_r")
+joint_one_bone_idx = 1
+joint_one_bone2d_node = NodePath("hip/thigh_r")
+joint_two_bone_idx = 2
+joint_two_bone2d_node = NodePath("hip/thigh_r/knee_r")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_6dm80"]
+target_nodepath = NodePath("../hand_target_l")
+flip_bend_direction = true
+joint_one_bone_idx = 13
+joint_one_bone2d_node = NodePath("hip/spine_low/spine_mid/spine_up/chest/shoulder_l")
+joint_two_bone_idx = 14
+joint_two_bone2d_node = NodePath("hip/spine_low/spine_mid/spine_up/chest/shoulder_l/elbow_l")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_rqn8b"]
+target_nodepath = NodePath("../hand_target_r")
+flip_bend_direction = true
+joint_one_bone_idx = 17
+joint_one_bone2d_node = NodePath("hip/spine_low/spine_mid/spine_up/chest/shoulder_r")
+joint_two_bone_idx = 18
+joint_two_bone2d_node = NodePath("hip/spine_low/spine_mid/spine_up/chest/shoulder_r/elbow_r")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_j6dve"]
+enabled = true
+modification_count = 4
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_j6dve")
+modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_yejg4")
+modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_6dm80")
+modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_rqn8b")
+
+[sub_resource type="Animation" id="Animation_j6dve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/hip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(552, 467)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/hip:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand_target_r:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(590, 444)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hand_target_r:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hand_target_l:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(533, 468)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("hand_target_l:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1spa7"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vu350"]
+_data = {
+&"RESET": SubResource("Animation_j6dve"),
+&"idle": SubResource("Animation_1spa7")
+}
+
+[node name="Animations" type="Node2D" unique_id=1837796738]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=659347520]
+modification_stack = SubResource("SkeletonModificationStack2D_j6dve")
+
+[node name="hip" type="Bone2D" parent="Skeleton2D" unique_id=181494435]
+position = Vector2(552, 467)
+rest = Transform2D(1, 0, 0, 1, 552, 467)
+
+[node name="thigh_r" type="Bone2D" parent="Skeleton2D/hip" unique_id=1080191419]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/thigh_r" unique_id=662473249]
+points = PackedVector2Array(0, 0, 15, 25)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="knee_r" type="Bone2D" parent="Skeleton2D/hip/thigh_r" unique_id=1250087950]
+position = Vector2(15, 25)
+rest = Transform2D(1, 0, 0, 1, 15, 25)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/thigh_r/knee_r" unique_id=303626525]
+points = PackedVector2Array(0, 0, 0, 32)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="ankle_r" type="Bone2D" parent="Skeleton2D/hip/thigh_r/knee_r" unique_id=1568264443]
+position = Vector2(0, 32)
+rest = Transform2D(1, 0, 0, 1, 0, 32)
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/thigh_r/knee_r/ankle_r" unique_id=210454566]
+points = PackedVector2Array(0, 0, 15, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="toe_r" type="Bone2D" parent="Skeleton2D/hip/thigh_r/knee_r/ankle_r" unique_id=1691479617]
+position = Vector2(15, 0)
+rest = Transform2D(1, 0, 0, 1, 15, 0)
+
+[node name="thigh_l" type="Bone2D" parent="Skeleton2D/hip" unique_id=1190039520]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/thigh_l" unique_id=536446839]
+points = PackedVector2Array(0, 0, -15, 25)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="knee_l" type="Bone2D" parent="Skeleton2D/hip/thigh_l" unique_id=1967909547]
+position = Vector2(-15, 25)
+rest = Transform2D(1, 0, 0, 1, -15, 25)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/thigh_l/knee_l" unique_id=1762853313]
+points = PackedVector2Array(0, 0, 0, 32)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="ankle_l" type="Bone2D" parent="Skeleton2D/hip/thigh_l/knee_l" unique_id=483842616]
+position = Vector2(0, 32)
+rest = Transform2D(1, 0, 0, 1, 0, 32)
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/thigh_l/knee_l/ankle_l" unique_id=346726778]
+points = PackedVector2Array(0, 0, 15, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="toe_l" type="Bone2D" parent="Skeleton2D/hip/thigh_l/knee_l/ankle_l" unique_id=1392815423]
+position = Vector2(15, 0)
+rest = Transform2D(1, 0, 0, 1, 15, 0)
+
+[node name="spine_low" type="Bone2D" parent="Skeleton2D/hip" unique_id=1822266256]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low" unique_id=1246314168]
+points = PackedVector2Array(0, 0, 0, -13.84)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="spine_mid" type="Bone2D" parent="Skeleton2D/hip/spine_low" unique_id=2092246966]
+position = Vector2(0, -13.84)
+rest = Transform2D(1, 0, 0, 1, 0, -13.84)
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid" unique_id=1187386036]
+points = PackedVector2Array(0, 0, 0, -13.84)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="spine_up" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid" unique_id=409568625]
+position = Vector2(0, -13.84)
+rest = Transform2D(1, 0, 0, 1, 0, -13.84)
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up" unique_id=1039411149]
+points = PackedVector2Array(0, 0, 0, -13.83)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="chest" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up" unique_id=572383699]
+position = Vector2(0, -13.83)
+rest = Transform2D(1, 0, 0, 1, 0, -13.83)
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" unique_id=1333074212]
+points = PackedVector2Array(0, 0, 0, -10.365)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="shoulder_l" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" unique_id=101601084]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_l" unique_id=1913890315]
+points = PackedVector2Array(0, 0, -31.57, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="elbow_l" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_l" unique_id=1350333157]
+position = Vector2(-31.57, 0)
+rest = Transform2D(1, 0, 0, 1, -31.57, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_l/elbow_l" unique_id=1595358351]
+points = PackedVector2Array(0, 0, -22.16, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="hand_l" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_l/elbow_l" unique_id=748366732]
+position = Vector2(-22.16, 0)
+rest = Transform2D(1, 0, 0, 1, -22.16, 0)
+
+[node name="head" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" unique_id=843993442]
+position = Vector2(0, -10.365)
+rest = Transform2D(1, 0, 0, 1, 0, -10.365)
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/head" unique_id=1749542218]
+points = PackedVector2Array(10, -10, 8.66, -5, 5, -1.34, 0, 0, -5, -1.34, -8.66, -5, -10, -10, -8.66, -15, -5, -18.66, 0, -20, 5, -18.66, 8.66, -15)
+closed = true
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="shoulder_r" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" unique_id=192820617]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r" unique_id=608964326]
+points = PackedVector2Array(0, 0, 31.57, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="elbow_r" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r" unique_id=842321837]
+position = Vector2(31.57, 0)
+rest = Transform2D(1, 0, 0, 1, 31.57, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Line2D" type="Line2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r/elbow_r" unique_id=47351236]
+points = PackedVector2Array(0, 0, 22.16, 0)
+width = 4.0
+metadata/_edit_lock_ = true
+
+[node name="hand_r" type="Bone2D" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r/elbow_r" unique_id=1185935685]
+position = Vector2(22.16, 0)
+rest = Transform2D(1, 0, 0, 1, 22.16, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1534295577]
+libraries/ = SubResource("AnimationLibrary_vu350")
+
+[node name="foot_target_l" type="Marker2D" parent="." unique_id=972901139]
+position = Vector2(537, 524)
+
+[node name="foot_target_r" type="Marker2D" parent="." unique_id=1708140652]
+position = Vector2(567, 524)
+
+[node name="hand_target_r" type="Marker2D" parent="." unique_id=696394346]
+position = Vector2(590, 444)
+
+[node name="hand_target_l" type="Marker2D" parent="." unique_id=952035962]
+position = Vector2(533, 468)

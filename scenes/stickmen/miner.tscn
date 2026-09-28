@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://einesmm5h5bg"]
+
+[ext_resource type="PackedScene" uid="uid://bs1c5bm4bpxjv" path="res://scenes/stickmen/stickman.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://bbwnta0ckj6fi" path="res://assets/icons/pickaxe.png" id="1_jjhmc"]
+
+[sub_resource type="Animation" id="Animation_r5elg"]
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/hip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.053798, 2.0665388, 3.0929654, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(552, 467), Vector2(552, 472), Vector2(551, 468), Vector2(554, 470), Vector2(552, 467)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/hip:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.053798, 2.0665388, 3.0929654, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand_target_r:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.0674835, 2.0802245, 3.0929654, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(590, 444), Vector2(593.415, 450.475), Vector2(589, 443), Vector2(593.055, 449.655), Vector2(590, 444)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hand_target_r:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.0674835, 2.0802245, 3.0929654, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hand_target_l:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.1130763, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(533, 468), Vector2(532, 471), Vector2(533, 468)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("hand_target_l:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.1130763, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rs6b"]
+_data = {
+&"idle": SubResource("Animation_r5elg")
+}
+
+[node name="Animations" unique_id=1837796738 instance=ExtResource("1_base")]
+
+[node name="thigh_r" parent="Skeleton2D/hip" parent_id_path=PackedInt32Array(181494435) index="0" unique_id=1080191419]
+scale = Vector2(0.9999107, 0.9999107)
+
+[node name="knee_r" parent="Skeleton2D/hip/thigh_r" index="1" unique_id=1250087950]
+rotation = 0.18506314
+scale = Vector2(0.9999255, 0.9999255)
+
+[node name="thigh_l" parent="Skeleton2D/hip" parent_id_path=PackedInt32Array(181494435) index="1" unique_id=1190039520]
+rotation = -0.64623
+scale = Vector2(0.99997765, 0.99997765)
+
+[node name="knee_l" parent="Skeleton2D/hip/thigh_l" index="1" unique_id=1967909547]
+rotation = 1.1376576
+scale = Vector2(0.9999383, 0.9999383)
+
+[node name="spine_low" parent="Skeleton2D/hip" parent_id_path=PackedInt32Array(181494435) index="2" unique_id=1822266256]
+rotation = 0.48547715
+
+[node name="spine_mid" parent="Skeleton2D/hip/spine_low" index="1" unique_id=2092246966]
+rotation = 0.094524816
+
+[node name="spine_up" parent="Skeleton2D/hip/spine_low/spine_mid" index="1" unique_id=409568625]
+rotation = 0.42164382
+
+[node name="shoulder_l" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" parent_id_path=PackedInt32Array(572383699) index="1" unique_id=101601084]
+rotation = -1.589083
+
+[node name="shoulder_r" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest" parent_id_path=PackedInt32Array(572383699) index="3" unique_id=192820617]
+rotation = 0.856076
+
+[node name="elbow_r" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r" index="1" unique_id=842321837]
+rotation = -2.6329155
+
+[node name="TextureRect" type="TextureRect" parent="Skeleton2D/hip/spine_low/spine_mid/spine_up/chest/shoulder_r/elbow_r/hand_r" parent_id_path=PackedInt32Array(1185935685) index="0" unique_id=1625673809]
+offset_left = -0.8722086
+offset_top = -25.42575
+offset_right = 25.857834
+offset_bottom = 1.3042908
+texture = ExtResource("1_jjhmc")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1534295577]
+process_priority = -1
+libraries/miner = SubResource("AnimationLibrary_0rs6b")
+autoplay = &"miner/idle"

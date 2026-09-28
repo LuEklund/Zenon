@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dkwbku71twyby" path="res://scripts/health.gd" id="1_5x4dd"]
 [ext_resource type="Script" uid="uid://dqyl0htihwjqj" path="res://scripts/unit.gd" id="1_qcpy4"]
+[ext_resource type="PackedScene" uid="uid://einesmm5h5bg" path="res://scenes/stickmen/miner.tscn" id="3_8so5f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dgfsc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dgfsc"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ucufk"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Miner" type="Node3D" unique_id=1994700907]
 script = ExtResource("1_qcpy4")
@@ -26,5 +30,15 @@ collide_with_bodies = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=753754378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_dgfsc")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1670662809]
+transparent_bg = true
+
+[node name="Animations" parent="SubViewport" unique_id=1837796738 instance=ExtResource("3_8so5f")]
+position = Vector2(-424, -307)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1002023586]
+transform = Transform3D(0.018248575, 0, -0.99983346, 0, 1, 0, 0.99983346, 0, 0.018248575, 0, 0, 0)
+texture = SubResource("ViewportTexture_ucufk")
 
 [connection signal="died" from="Health" to="." method="_on_death"]
