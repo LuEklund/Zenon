@@ -17,17 +17,11 @@ extends Node3D
 var target_zoom: float
 var current_speed: float = 0.0
 
-
 func _ready() -> void:
 	target_zoom = camera.size
 	current_speed = default_speed
 
-
 func _physics_process(delta: float) -> void:
-	# ----------------------------------------
-	# Movement
-	# ----------------------------------------
-
 	var base_speed := (
 		fast_speed
 		if Input.is_action_pressed("move_fast")
@@ -54,24 +48,12 @@ func _physics_process(delta: float) -> void:
 		100.0
 	)
 
-	# ----------------------------------------
-	# Zoom
-	# ----------------------------------------
-
 	var zoom_changed := not is_equal_approx(
 		camera.size,
 		target_zoom
 	)
 
 	if zoom_changed:
-		# This is the important part copied in concept
-		# from the existing RTS camera implementation:
-		#
-		# 1. Remember the world point under the mouse.
-		# 2. Change zoom.
-		# 3. Find the new world point under the mouse.
-		# 4. Move the camera by their difference.
-
 		var mouse := get_viewport().get_mouse_position()
 
 		var before := get_mouse_world_position(mouse)
@@ -129,10 +111,8 @@ func get_mouse_world_position(mouse: Vector2) -> Vector3:
 	var origin := camera.project_ray_origin(mouse)
 	var direction := camera.project_ray_normal(mouse)
 
-	if is_zero_approx(direction.y):
-		return origin
+	if is_zero_approx(direction.y): return origin
 
-	# Intersection with Y = 0.
 	var distance := -origin.y / direction.y
 
 	return origin + direction * distance

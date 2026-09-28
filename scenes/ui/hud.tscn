@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://wcm8fssonn3x"]
+
+[ext_resource type="Script" uid="uid://b84v88yf4bwn1" path="res://scripts/player/hud.gd" id="1_bo48s"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_hqnrr"]
+[ext_resource type="Texture2D" uid="uid://c3q6nm8m5vmf4" path="res://assets/textures/goblin.png" id="2_bo48s"]
+
+[node name="Hud" type="Node" unique_id=445809307]
+script = ExtResource("1_bo48s")
+metadata/_custom_type_script = "uid://cpt8owy3ikgo8"
+
+[node name="Control" type="Control" parent="." unique_id=1960564282]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Gold" type="Label" parent="Control" unique_id=1355624888]
+layout_mode = 0
+offset_left = 1024.0
+offset_right = 1152.0
+offset_bottom = 64.0
+text = "$0"
+
+[node name="SpawnMiner" type="TextureButton" parent="Control" unique_id=1367692932]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 136.0
+texture_normal = ExtResource("1_hqnrr")
+texture_pressed = ExtResource("2_bo48s")
+
+[node name="SpawnGoblin" type="TextureButton" parent="Control" unique_id=919489750]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 136.0
+texture_normal = ExtResource("1_hqnrr")
+texture_pressed = ExtResource("2_bo48s")
+
+[connection signal="pressed" from="Control/SpawnMiner" to="." method="_on_spawn_miner_pressed"]
+[connection signal="pressed" from="Control/SpawnGoblin" to="." method="_on_spawn_goblin_pressed"]

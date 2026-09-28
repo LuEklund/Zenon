@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://be8qbmt0fe144"]
 
-[ext_resource type="Script" uid="uid://bdg5a6ignpmgc" path="res://scripts/Player.gd" id="1_dqkch"]
-[ext_resource type="Script" uid="uid://dp1tkk4p3v7nj" path="res://scenes/units/structure.gd" id="1_qhqgy"]
-[ext_resource type="PackedScene" uid="uid://bxottdcs83qgk" path="res://scenes/gold_deposit.tscn" id="2_g2els"]
+[ext_resource type="Script" uid="uid://bdg5a6ignpmgc" path="res://scripts/player/Player.gd" id="1_dqkch"]
+[ext_resource type="Script" uid="uid://dp1tkk4p3v7nj" path="res://scripts/units/structure.gd" id="1_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bxottdcs83qgk" path="res://scenes/units/gold_deposit.tscn" id="2_g2els"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dgfsc"]
 size = Vector3(3, 3, 2)

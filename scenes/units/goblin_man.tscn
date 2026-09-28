@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://dnnfxm4ecxb3m"]
 
-[ext_resource type="Script" uid="uid://br7eg87oj0egv" path="res://scripts/MeleeUnit.gd" id="1_jlhkc"]
+[ext_resource type="Script" uid="uid://br7eg87oj0egv" path="res://scripts/units/MeleeUnit.gd" id="1_jlhkc"]
 [ext_resource type="Texture2D" uid="uid://c3q6nm8m5vmf4" path="res://assets/textures/goblin.png" id="2_jlhkc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p3g3q"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdfag"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlhkc"]
 albedo_texture = ExtResource("2_jlhkc")
 
 [sub_resource type="QuadMesh" id="QuadMesh_dgfsc"]
-material = SubResource("StandardMaterial3D_wdfag")
+material = SubResource("StandardMaterial3D_jlhkc")
 
 [node name="GoblinMan" type="StaticBody3D" unique_id=474934368]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_jlhkc")
+type = 1
 metadata/_custom_type_script = "uid://3hr5ol7rf35r"
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1104631551]
