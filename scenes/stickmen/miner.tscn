@@ -95,7 +95,7 @@ scale = Vector2(0.9999255, 0.9999255)
 
 [node name="thigh_l" parent="Skeleton2D/hip" parent_id_path=PackedInt32Array(181494435) index="1" unique_id=1190039520]
 rotation = -0.64623
-scale = Vector2(0.9999777, 0.9999777)
+scale = Vector2(0.99997765, 0.99997765)
 
 [node name="knee_l" parent="Skeleton2D/hip/thigh_l" index="1" unique_id=1967909547]
 rotation = 1.1376576
@@ -132,9 +132,3 @@ metadata/_edit_lock_ = true
 process_priority = -1
 libraries/miner = SubResource("AnimationLibrary_0rs6b")
 autoplay = &"miner/idle"
-
-[node name="hand_target_r" parent="." index="4" unique_id=696394346]
-position = Vector2(590, 444)
-
-[node name="hand_target_l" parent="." index="5" unique_id=952035962]
-position = Vector2(533, 468)
