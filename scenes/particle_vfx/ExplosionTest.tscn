@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cx010ef2vahss"]
+
+[ext_resource type="Script" uid="uid://d3gsrqqyjlc4w" path="res://scripts/particle_vfx/ParticleVFX.gd" id="1_oroe6"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ex8b8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bixm1"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bixm1"]
+spread = 180.0
+initial_velocity_min = 5.38
+initial_velocity_max = 5.38
+color = Color(0.98200256, 0.3562831, 0.19002175, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq7ro"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jjmid"]
+material = SubResource("StandardMaterial3D_cq7ro")
+
+[sub_resource type="Animation" id="Animation_oroe6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0o07y"]
+resource_name = "play"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.53),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ubl5"]
+_data = {
+&"RESET": SubResource("Animation_oroe6"),
+&"play": SubResource("Animation_0o07y")
+}
+
+[node name="VFX" type="Node3D" unique_id=276495621]
+script = ExtResource("1_oroe6")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=403139884]
+emitting = false
+amount = 53
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_ex8b8")
+draw_pass_1 = SubResource("SphereMesh_bixm1")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=595893955]
+emitting = false
+amount = 11
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bixm1")
+draw_pass_1 = SubResource("CapsuleMesh_jjmid")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1793264091]
+libraries/ = SubResource("AnimationLibrary_5ubl5")
