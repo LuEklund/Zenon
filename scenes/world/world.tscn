@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c4ta4cbxcd7fn" path="res://assets/icons/spearmen.png" id="6_t5ptc"]
 [ext_resource type="Texture2D" uid="uid://diao8pyvfyhln" path="res://assets/icons/magic.png" id="7_j2gmx"]
 [ext_resource type="Texture2D" uid="uid://cg7ya0symxoxj" path="res://assets/icons/Giant.png" id="8_1yooq"]
+[ext_resource type="PackedScene" uid="uid://einesmm5h5bg" path="res://scenes/stickmen/miner.tscn" id="9_1yooq"]
 
 [node name="World" type="Node3D" unique_id=1541543222]
 
@@ -51,3 +52,5 @@ texture_normal = ExtResource("7_j2gmx")
 [node name="TextureButton6" type="TextureButton" parent="Camera3D/CanvasLayer/HBoxContainer" unique_id=1080283383]
 layout_mode = 2
 texture_normal = ExtResource("8_1yooq")
+
+[node name="Animations" parent="Camera3D/CanvasLayer/HBoxContainer" unique_id=1837796738 instance=ExtResource("9_1yooq")]
