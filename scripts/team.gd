@@ -16,7 +16,26 @@ func is_enemy(other: Team) -> bool:
 	return other != self
 
 func _on_spawn_unit(scene: PackedScene) -> void:
-	var unit = scene.instantiate() as Unit
+	var instanced_scene = scene.instantiate()
+	if instanced_scene is not Unit:
+		var script: Variant = instanced_scene.get_script()
+
+		push_error(
+			"Failed to instantiate Unit from '%s': type=%s, script=%s"
+			% [
+				scene.resource_path,
+				instanced_scene.get_class(),
+				script.get_global_name() if script else "none",
+			]
+		)
+
+		instanced_scene.queue_free()
+		return
+	var unit = instanced_scene as Unit
+	if unit == null: 
+		push_error("null instanced unit %s" % scene.resource_path)
+		return
+
 	unit.team = self
 	add_child(unit)
 	unit.global_position = spawn_point.global_position

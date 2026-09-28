@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bytfd30lb6ybm" path="res://scenes/camera.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://bpabqu4l24hnh" path="res://scripts/game.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://dw8db2grvq3pg" path="res://scenes/miner.tscn" id="3_sugp2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_okknv"]
 ground_bottom_color = Color(0.60937864, 0.6052566, 0.59404284, 1)
@@ -36,7 +35,3 @@ environment = SubResource("Environment_dgfsc")
 [node name="Ground" type="MeshInstance3D" parent="Backround" unique_id=113233498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17353034, -0.39558506, 0.029800415)
 mesh = SubResource("QuadMesh_sugp2")
-
-[node name="Big Boy Shreader" parent="." unique_id=1994700907 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
-speed = 0.0

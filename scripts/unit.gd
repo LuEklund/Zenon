@@ -1,10 +1,6 @@
 class_name Unit
 extends Node3D
 
-# Units
-const MINER: PackedScene = preload("res://scenes/miner.tscn")
-# Units end
-
 @onready var hit_ray: RayCast3D = $HitRay
 
 ## Damage dealt per physics frame. 60 physics frames = 1 second.
@@ -13,14 +9,12 @@ const MINER: PackedScene = preload("res://scenes/miner.tscn")
 
 var team: Team
 
-#func _ready():
-#	assert(team != null, "%s missing team" % name)
-
 func _physics_process(delta: float) -> void:
 	var target := hit_ray.get_collider()
 
 	if target is Health:
-		if target is Unit and target.team.is_enemy(team): return
+		if target is Unit and not target.team.is_enemy(team): return
+		
 		attack(target)
 
 	else:

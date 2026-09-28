@@ -94,7 +94,7 @@ rotation = 0.18506314
 scale = Vector2(0.9999255, 0.9999255)
 
 [node name="thigh_l" parent="Skeleton2D/hip" parent_id_path=PackedInt32Array(181494435) index="1" unique_id=1190039520]
-rotation = -0.64623
+rotation = -0.6462299
 scale = Vector2(0.99997765, 0.99997765)
 
 [node name="knee_l" parent="Skeleton2D/hip/thigh_l" index="1" unique_id=1967909547]
