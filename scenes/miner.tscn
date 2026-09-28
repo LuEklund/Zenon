@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dw8db2grvq3pg"]
+
+[ext_resource type="Script" uid="uid://dkwbku71twyby" path="res://scripts/health.gd" id="1_5x4dd"]
+[ext_resource type="Script" uid="uid://dqyl0htihwjqj" path="res://scripts/unit.gd" id="1_qcpy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgfsc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dgfsc"]
+
+[node name="Miner" type="Node3D" unique_id=1994700907]
+script = ExtResource("1_qcpy4")
+
+[node name="Health" type="Area3D" parent="." unique_id=323011833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_5x4dd")
+metadata/_custom_type_script = "uid://dkwbku71twyby"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Health" unique_id=492324770]
+shape = SubResource("BoxShape3D_dgfsc")
+
+[node name="HitRay" type="RayCast3D" parent="." unique_id=1800444764]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.5, 0.5, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=753754378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_dgfsc")
+
+[connection signal="died" from="Health" to="." method="_on_death"]
