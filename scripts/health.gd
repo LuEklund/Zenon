@@ -24,3 +24,7 @@ var health: float = max_health:
 
 func _ready() -> void:
 	health = max_health
+
+
+func _on_died() -> void:
+	pass # Replace with function body.

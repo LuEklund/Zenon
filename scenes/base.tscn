@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ktgw261ix4om"]
 
 [ext_resource type="Script" uid="uid://dkwbku71twyby" path="res://scripts/health.gd" id="1_pvqg0"]
+[ext_resource type="Script" uid="uid://ciiebuadg8e63" path="res://scripts/health_bar.gd" id="2_baglu"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_eiqrc"]
 radius = 1.0
@@ -45,3 +46,13 @@ metadata/_custom_type_script = "uid://dkwbku71twyby"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Health" unique_id=1340158396]
 shape = SubResource("BoxShape3D_dgfsc")
+
+[node name="HealthBarText" type="Label3D" parent="." unique_id=1384714871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+text = "100%"
+font_size = 200
+script = ExtResource("2_baglu")
+
+[connection signal="damaged" from="Health" to="HealthBarText" method="_on_damaged"]
+[connection signal="died" from="Health" to="HealthBarText" method="_on_health_died"]
+[connection signal="healed" from="Health" to="HealthBarText" method="_on_healed"]
