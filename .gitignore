@@ -1,2 +1,3 @@
-.godot
-/scrap
+.zig-cache
+zig-out
+zig-pkg

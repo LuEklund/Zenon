@@ -1,7 +1,0 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://bmfbvpkeh63ol"]
-
-[ext_resource type="Shader" uid="uid://cqp5tkx7g4vp0" path="res://assets/shaders/gold.gdshader" id="1_civ4i"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_civ4i")

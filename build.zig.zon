@@ -1,0 +1,17 @@
+.{
+    .name = .Zenon,
+    .version = "0.0.0",
+    .fingerprint = 0xb25ffa5bb5c94df3,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .raylib = .{
+            .url = "git+https://github.com/raysan5/raylib#6ecf21f700642c797dd0f2f3d4b1f2c91b71711d",
+            .hash = "raylib-6.0.0-whq8uPNTNwVVdBUVezOipMP7f-NUXhxl8xMdr9B-Xxfi",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
