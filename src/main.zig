@@ -14,8 +14,8 @@ pub fn main() !void {
     defer rl.CloseWindow();
 
     var camera: Camera = .init(@splat(0));
-    const parallax: Parallax = undefined;
-    _ = parallax;
+    var parallax: Parallax = undefined;
+    parallax.init();
 
     while (!rl.WindowShouldClose()) {
         const dt = rl.GetFrameTime();
@@ -26,23 +26,25 @@ pub fn main() !void {
         defer rl.EndDrawing();
 
         rl.ClearBackground(rl.PINK);
+        parallax.update();
 
         rl.BeginMode2D(camera.toRaylib());
         defer rl.EndMode2D();
 
-        rl.DrawRectangleV(
-            .{ .x = -100.0, .y = -0.5 },
-            .{ .x = 200.0, .y = 0.5 },
-            rl.LIME,
-        );
+        // rl.DrawRectangleV(
+        //     .{ .x = -100.0, .y = -0.5 },
+        //     .{ .x = 200.0, .y = 0.5 },
+        //     rl.LIME,
+        // );
+        //
+        // rl.DrawCircleV(
+        //     .{
+        //         .x = 0.0,
+        //         .y = -0.5,
+        //     },
+        //     0.25,
+        //     rl.RED,
+        // );
 
-        rl.DrawCircleV(
-            .{
-                .x = 0.0,
-                .y = -0.5,
-            },
-            0.25,
-            rl.RED,
-        );
     }
 }

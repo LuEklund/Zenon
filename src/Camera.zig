@@ -64,8 +64,8 @@ pub fn update(self: *Camera, delta_time: f32) void {
 }
 
 pub fn toRaylib(self: Camera) rl.Camera2D {
-    const screen_width: f32 = @floatFromInt(rl.GetScreenWidth());
-    const screen_height: f32 = @floatFromInt(rl.GetScreenHeight());
+    // const screen_width: f32 = @floatFromInt(rl.GetScreenWidth());
+    // const screen_height: f32 = @floatFromInt(rl.GetScreenHeight());
 
     return .{
         .target = .{
@@ -73,8 +73,8 @@ pub fn toRaylib(self: Camera) rl.Camera2D {
             .y = self.position[1],
         },
         .offset = .{
-            .x = screen_width * 0.5,
-            .y = screen_height,
+            .x = 0,
+            .y = 0,
         },
         .rotation = self.rotation,
         .zoom = self.zoom,
