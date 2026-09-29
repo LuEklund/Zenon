@@ -32,19 +32,18 @@ pub fn main() !void {
         defer rl.EndMode2D();
 
         // rl.DrawRectangleV(
-        //     .{ .x = -100.0, .y = -0.5 },
+        //     .{ .x = 100.0, .y = 0.5 },
         //     .{ .x = 200.0, .y = 0.5 },
         //     rl.LIME,
         // );
-        //
-        // rl.DrawCircleV(
-        //     .{
-        //         .x = 0.0,
-        //         .y = -0.5,
-        //     },
-        //     0.25,
-        //     rl.RED,
-        // );
 
+        rl.DrawCircleV(
+            .{
+                .x = 1,
+                .y = 1,
+            },
+            0.25,
+            rl.RED,
+        );
     }
 }
