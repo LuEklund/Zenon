@@ -16,6 +16,8 @@ func is_enemy(other: Team) -> bool:
 	return other != self
 
 func _on_spawn_unit(scene: PackedScene) -> void:
+	if spawn_point == null: return
+	
 	var instanced_scene = scene.instantiate()
 	if instanced_scene is not Unit:
 		var script: Variant = instanced_scene.get_script()

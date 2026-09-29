@@ -13,12 +13,16 @@ func _physics_process(delta: float) -> void:
 	var target := hit_ray.get_collider()
 
 	if target is Health:
-		if target is Unit and not target.team.is_enemy(team): return
-		
-		attack(target)
+		var unit := target.get_parent() as Unit
 
-	else:
-		position += transform.basis.x * speed * delta
+		if unit == null or not team.is_enemy(unit.team):
+			position += transform.basis.x * speed * delta
+			return
+
+		attack(target)
+		return
+
+	position += transform.basis.x * speed * delta
 
 func attack(target_health: Health) -> void:
 	target_health.health -= damage

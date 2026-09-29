@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://wcm8fssonn3x"]
 
-[ext_resource type="Script" uid="uid://b84v88yf4bwn1" path="res://scripts/player/hud.gd" id="1_bo48s"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_hqnrr"]
 [ext_resource type="Texture2D" uid="uid://c3q6nm8m5vmf4" path="res://assets/textures/goblin.png" id="2_bo48s"]
 [ext_resource type="Texture2D" uid="uid://bbwnta0ckj6fi" path="res://assets/icons/pickaxe.png" id="4_4jqwt"]
 [ext_resource type="Texture2D" uid="uid://bw45unmn6vpto" path="res://assets/icons/Sword.png" id="5_kicr4"]
@@ -10,64 +8,48 @@
 [ext_resource type="Texture2D" uid="uid://diao8pyvfyhln" path="res://assets/icons/magic.png" id="8_4d46k"]
 [ext_resource type="Texture2D" uid="uid://cg7ya0symxoxj" path="res://assets/icons/Giant.png" id="9_erw67"]
 
-[node name="Hud" type="Node" unique_id=445809307]
-script = ExtResource("1_bo48s")
-metadata/_custom_type_script = "uid://cpt8owy3ikgo8"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1531396534]
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1960564282]
+[node name="Hud" type="Control" unique_id=1578794988]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
-[node name="Gold" type="Label" parent="CanvasLayer/Control" unique_id=1355624888]
+[node name="Spawn" type="HBoxContainer" parent="." unique_id=1908036055]
+layout_mode = 0
+offset_right = 798.0
+offset_bottom = 130.0
+
+[node name="Miner" type="TextureButton" parent="Spawn" unique_id=1313284085]
+layout_mode = 2
+texture_normal = ExtResource("4_4jqwt")
+texture_pressed = ExtResource("2_bo48s")
+
+[node name="Swordsman" type="TextureButton" parent="Spawn" unique_id=262004698]
+layout_mode = 2
+texture_normal = ExtResource("5_kicr4")
+texture_pressed = ExtResource("2_bo48s")
+
+[node name="Archer" type="TextureButton" parent="Spawn" unique_id=1239773645]
+layout_mode = 2
+texture_normal = ExtResource("6_mj13f")
+texture_pressed = ExtResource("2_bo48s")
+
+[node name="Roman" type="TextureButton" parent="Spawn" unique_id=2054658029]
+layout_mode = 2
+texture_normal = ExtResource("7_0h1do")
+texture_pressed = ExtResource("2_bo48s")
+
+[node name="Wizard" type="TextureButton" parent="Spawn" unique_id=1584209701]
+layout_mode = 2
+texture_normal = ExtResource("8_4d46k")
+texture_pressed = ExtResource("2_bo48s")
+
+[node name="BigBoy" type="TextureButton" parent="Spawn" unique_id=854512362]
+layout_mode = 2
+texture_normal = ExtResource("9_erw67")
+texture_pressed = ExtResource("2_bo48s")
+
+[node name="Gold" type="Label" parent="." unique_id=1355624888]
 layout_mode = 0
 offset_left = 1024.0
 offset_right = 1152.0
 offset_bottom = 64.0
 text = "$0"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Gold" unique_id=1908036055]
-layout_mode = 0
-offset_left = -1024.0
-offset_right = -226.0
-offset_bottom = 130.0
-
-[node name="SpawnMiner" type="TextureButton" parent="CanvasLayer/Control/Gold/HBoxContainer" unique_id=1367692932]
-layout_mode = 2
-texture_normal = ExtResource("1_hqnrr")
-texture_pressed = ExtResource("2_bo48s")
-
-[node name="SpawnGoblin" type="TextureButton" parent="CanvasLayer/Control/Gold/HBoxContainer" unique_id=919489750]
-layout_mode = 2
-texture_normal = ExtResource("1_hqnrr")
-texture_pressed = ExtResource("2_bo48s")
-
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control/Gold/HBoxContainer" unique_id=1313284085]
-layout_mode = 2
-texture_normal = ExtResource("4_4jqwt")
-
-[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Control/Gold/HBoxContainer" unique_id=262004698]
-layout_mode = 2
-texture_normal = ExtResource("5_kicr4")
-
-[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Control/Gold/HBoxContainer" unique_id=1239773645]
-layout_mode = 2
-texture_normal = ExtResource("6_mj13f")
-
-[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Control/Gold/HBoxContainer" unique_id=2054658029]
-layout_mode = 2
-texture_normal = ExtResource("7_0h1do")
-
-[node name="TextureButton5" type="TextureButton" parent="CanvasLayer/Control/Gold/HBoxContainer" unique_id=1584209701]
-layout_mode = 2
-texture_normal = ExtResource("8_4d46k")
-
-[node name="TextureButton6" type="TextureButton" parent="CanvasLayer/Control/Gold/HBoxContainer" unique_id=854512362]
-layout_mode = 2
-texture_normal = ExtResource("9_erw67")
-
-[connection signal="pressed" from="CanvasLayer/Control/Gold/HBoxContainer/SpawnMiner" to="." method="_on_spawn_miner_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Gold/HBoxContainer/SpawnGoblin" to="." method="_on_spawn_goblin_pressed"]

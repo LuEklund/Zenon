@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d1qle5euefyvq"]
+
+[ext_resource type="Script" uid="uid://dqyl0htihwjqj" path="res://scripts/unit.gd" id="1_ajedr"]
+[ext_resource type="Script" uid="uid://dkwbku71twyby" path="res://scripts/health.gd" id="2_txt4u"]
+[ext_resource type="PackedScene" uid="uid://einesmm5h5bg" path="res://scenes/stickmen/miner.tscn" id="3_b231l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgfsc"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ucufk"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Miner" type="Node3D" unique_id=105386602]
+script = ExtResource("1_ajedr")
+speed = 4.0
+
+[node name="Health" type="Area3D" parent="." unique_id=1948943153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_txt4u")
+max_health = 60.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Health" unique_id=5073051]
+shape = SubResource("BoxShape3D_dgfsc")
+
+[node name="HitRay" type="RayCast3D" parent="." unique_id=2096160487]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.5, 0.5, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1294808010]
+transparent_bg = true
+
+[node name="Animations" parent="SubViewport" unique_id=476725453 instance=ExtResource("3_b231l")]
+position = Vector2(-424, -307)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1327399994]
+transform = Transform3D(0.99983346, 0, 0.01824862, 0, 1, 0, -0.01824862, 0, 0.99983346, 1, -0.37029523, 0)
+texture = SubResource("ViewportTexture_ucufk")
+
+[connection signal="died" from="Health" to="." method="_on_death"]
