@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 	(spawn.get_node("Miner") as TextureButton).pressed.connect(_spawn.bind(miner))
 	(spawn.get_node("Swordsman") as TextureButton).pressed.connect(_spawn.bind(swordsman))
+	(spawn.get_node("Archer") as TextureButton).pressed.connect(_spawn.bind(archer))
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("spawn_miner"): _spawn(miner)
