@@ -24,7 +24,7 @@ pub fn update(self: *Parallax) void {
         scroll.* -= (0.01 + 0.05 * @as(f32, @floatFromInt(i)));
         const width = @as(f32, @floatFromInt(background.width));
         // const heigth = @as(f32, @floatFromInt(background.height));
-        if (scroll.* <= -width * 2) scroll.* = 0;
+        if (scroll.* <= -width) scroll.* += width;
         rl.DrawTextureEx(
             background,
             .{ .x = -scroll.*, .y = 20 },

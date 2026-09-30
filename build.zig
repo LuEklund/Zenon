@@ -1,7 +1,15 @@
 const std = @import("std");
 
 pub fn build(b: *std.Build) void {
-    const target = b.standardTargetOptions(.{});
+    //Archlinux too high glibc version.
+    const target = b.standardTargetOptions(.{ .default_target = .{
+        .cpu_arch = .x86_64,
+        .os_tag = .linux,
+        .abi = .gnu,
+        .glibc_version = .{ .major = 2, .minor = 39, .patch = 0 },
+    } });
+    b.addSearchPrefix("/usr");
+
     const optimize = b.standardOptimizeOption(.{});
 
     const raylib = b.dependency("raylib", .{ .target = target, .optimize = optimize }).module("raylib");
@@ -16,8 +24,6 @@ pub fn build(b: *std.Build) void {
                 .{ .name = "raylib", .module = raylib },
             },
         }),
-        .use_llvm = true,
-        .use_lld = true,
     });
 
     b.installArtifact(exe);
