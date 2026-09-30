@@ -17,7 +17,7 @@ pub fn build(b: *std.Build) void {
             },
         }),
         .use_llvm = true,
-        .use_lld = true,
+        .use_lld = target.result.os.tag != .macos,
     });
 
     b.installArtifact(exe);

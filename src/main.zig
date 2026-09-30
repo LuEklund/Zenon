@@ -14,8 +14,7 @@ pub fn main() !void {
     defer rl.CloseWindow();
 
     var camera: Camera = .init(@splat(0));
-    var parallax: Parallax = undefined;
-    parallax.init();
+    var parallax: Parallax = .init();
 
     while (!rl.WindowShouldClose()) {
         const dt = rl.GetFrameTime();
@@ -26,7 +25,6 @@ pub fn main() !void {
         defer rl.EndDrawing();
 
         rl.ClearBackground(rl.PINK);
-        parallax.update();
 
         rl.BeginMode2D(camera.toRaylib());
         defer rl.EndMode2D();
@@ -45,5 +43,7 @@ pub fn main() !void {
             0.25,
             rl.RED,
         );
+
+        parallax.update();
     }
 }
