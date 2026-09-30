@@ -24,6 +24,7 @@ pub fn build(b: *std.Build) void {
                 .{ .name = "raylib", .module = raylib },
             },
         }),
+        .use_lld = target.result.os.tag != .macos,
     });
 
     b.installArtifact(exe);
